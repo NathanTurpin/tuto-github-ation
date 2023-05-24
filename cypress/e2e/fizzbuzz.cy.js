@@ -19,5 +19,11 @@ describe("check-password", () => {
     cy.get("#error").contains(
       "Le mot de passe doit contenir au moins une lettre majuscule"
     );
+
+    cy.get("#password").clear().type("Password12");
+    cy.get("#submit").click();
+    cy.get("#error").contains(
+      "Le mot de passe doit contenir au moins un caractère spécial"
+    );
   });
 });
