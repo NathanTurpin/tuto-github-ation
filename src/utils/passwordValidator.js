@@ -9,6 +9,12 @@ export function passwordValidator(password) {
     errorsMess.push("Le mot de passe doit contenir au moins 2 chiffres");
   }
 
+  if (!/[A-Z]/.test(password)) {
+    errorsMess.push(
+      "Le mot de passe doit contenir au moins une lettre majuscule"
+    );
+  }
+
   return {
     isValid: errorsMess.length === 0,
     errorsMess,
