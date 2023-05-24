@@ -13,5 +13,11 @@ describe("check-password", () => {
     cy.get("#error").contains(
       "Le mot de passe doit contenir au moins 2 chiffres"
     );
+
+    cy.get("#password").clear().type("password12");
+    cy.get("#submit").click();
+    cy.get("#error").contains(
+      "Le mot de passe doit contenir au moins une lettre majuscule"
+    );
   });
 });

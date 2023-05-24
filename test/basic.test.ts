@@ -29,5 +29,12 @@ describe("passwordValidator", () => {
     );
   });
 
+  it("valide qu'il y est au moins 1 maj", () => {
+    const { isValid, errorsMess } = passwordValidator("passe12ee");
+    expect(isValid).to.equal(false);
+    expect(errorsMess).contains(
+      "Le mot de passe doit contenir au moins une lettre majuscule"
+    );
+  });
 
 });
