@@ -37,12 +37,18 @@ describe("passwordValidator", () => {
     );
   });
 
-  it("valide qu'il y est au moins 1 maj", () => {
+  it("valide qu'il y est au moins 1 car spe", () => {
     const { isValid, errorsMess } = passwordValidator("Passe12ee");
     expect(isValid).to.equal(false);
     expect(errorsMess).contains(
       "Le mot de passe doit contenir au moins un caractère spécial"
     );
+  });
+
+  it("passwor valide", () => {
+    const { isValid, errorsMess } = passwordValidator("Passe12ee!");
+    expect(isValid).to.equal(true);
+    expect(errorsMess).contains([]);
   });
   
 });
