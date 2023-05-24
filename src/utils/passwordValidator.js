@@ -20,6 +20,7 @@ export function passwordValidator(password) {
       "Le mot de passe doit contenir au moins un caractère spécial"
     );
   }
+
   return {
     isValid: errorsMess.length === 0,
     errorsMess,

@@ -48,7 +48,7 @@ describe("passwordValidator", () => {
   it("passwor valide", () => {
     const { isValid, errorsMess } = passwordValidator("Passe12ee!");
     expect(isValid).to.equal(true);
-    expect(errorsMess).contains([]);
+    expect(errorsMess).to.be.empty;
   });
   
 });

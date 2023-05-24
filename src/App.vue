@@ -8,12 +8,18 @@ const errors = ref([]);
 const submitForm = () => {
   const { isValid, errorsMess } = passwordValidator(password.value);
 
-  console.log(isValid, errorsMess);
   if (!isValid) {
+    console.log(isValid, errorsMess);
+
     errors.value.push(errorsMess);
     return;
   }
 
+  if (isValid) {
+    console.log(isValid, errorsMess);
+
+    errors.value = errorsMess;
+  }
   // Soumettez le formulaire ici
 };
 </script>
@@ -25,7 +31,7 @@ const submitForm = () => {
       <input id="password" type="password" v-model="password" />
     </div>
 
-    <div>
+    <div v-if="errors">
       <ul id="error">
         <li v-for="(error, index) in errors" :key="index">
           {{ error }}

@@ -28,6 +28,6 @@ describe("check-password", () => {
 
     cy.get("#password").clear().type("Password12!");
     cy.get("#submit").click();
-    cy.get("#error").contains([]);
+    cy.get("#error").should("be.empty");
   });
 });
