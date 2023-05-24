@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "test": "vitest",
+    "test:e2e": "cypress open",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -13,6 +14,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "cypress": "^12.13.0",
     "vite": "^4.3.5",
     "vitest": "^0.31.1"
   }
