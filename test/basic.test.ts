@@ -6,26 +6,26 @@ describe("passwordValidator", () => {
   it("retourne un booléen et un tableau", () => {
    
 
-    const { isValid, errors } = passwordValidator("");
+    const { isValid, errorsMess } = passwordValidator("");
 
     expect(typeof isValid).to.equal("boolean");
 
-    expect(Array.isArray(errors)).to.equal(true);
+    expect(Array.isArray(errorsMess)).to.equal(true);
   });
 
   it("valide la longueur minimale du mot de passe", () => {
-    const { isValid, errors } = passwordValidator("passe");
+    const { isValid, errorsMess } = passwordValidator("passe");
     expect(isValid).to.equal(false);
-    expect(errors).contains(
+    expect(errorsMess).contains(
       "Le mot de passe doit comporter au moins 8 caractères"
     );
   });
 
   it("valide qu'il y est au moins 2 chiffres", () => {
-    const { isValid, errors } = passwordValidator("passe1");
+    const { isValid, errorsMess } = passwordValidator("passe1eee");
     expect(isValid).to.equal(false);
-    expect(errors).contains(
-      "Le mot de passe doit comporter au moins 2 chiffres"
+    expect(errorsMess).contains(
+      "Le mot de passe doit contenir au moins 2 chiffres"
     );
   });
 
