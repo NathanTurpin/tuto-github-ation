@@ -15,6 +15,11 @@ export function passwordValidator(password) {
     );
   }
 
+  if (!/\W|_/g.test(password)) {
+    errorsMess.push(
+      "Le mot de passe doit contenir au moins un caractère spécial"
+    );
+  }
   return {
     isValid: errorsMess.length === 0,
     errorsMess,
