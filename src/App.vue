@@ -1,8 +1,21 @@
 <script setup>
 import { ref } from "vue";
+import { passwordValidator } from "@/utils/passwordValidator";
 
 const password = ref("");
 const errors = ref([]);
+
+const submitForm = () => {
+  const { isValid, errors } = passwordValidator(password.value);
+
+  console.log(isValid, errors);
+  if (!isValid) {
+    errors.value = errors;
+    return;
+  }
+
+  // Soumettez le formulaire ici
+};
 </script>
 
 <template>
