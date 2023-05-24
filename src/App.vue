@@ -6,11 +6,11 @@ const password = ref("");
 const errors = ref([]);
 
 const submitForm = () => {
-  const { isValid, errors } = passwordValidator(password.value);
+  const { isValid, errorsMess } = passwordValidator(password.value);
 
-  console.log(isValid, errors);
+  console.log(isValid, errorsMess);
   if (!isValid) {
-    errors.value = errors;
+    errors.value.push(errorsMess);
     return;
   }
 
@@ -25,9 +25,11 @@ const submitForm = () => {
       <input id="password" type="password" v-model="password" />
     </div>
 
-    <div v-if="errors.length">
-      <ul>
-        <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
+    <div>
+      <ul id="error">
+        <li v-for="(error, index) in errors" :key="index">
+          {{ error }}
+        </li>
       </ul>
     </div>
 
