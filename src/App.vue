@@ -1,37 +1,19 @@
-<script setup>
-</script>
-
 <template>
-  <div>
-    <h1 id="title">coucou</h1>
-  </div>
+  <form @submit.prevent="submitForm">
+    <div>
+      <label for="password">Mot de passe</label>
+      <input id="password" type="password" v-model="password" />
+    </div>
+
+    <div v-if="errors.length">
+      <ul>
+        <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
+      </ul>
+    </div>
+
+    <button type="submit">S'inscrire</button>
+  </form>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<script>
+</script>
