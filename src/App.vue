@@ -1,3 +1,10 @@
+<script setup>
+import { ref } from "vue";
+
+const password = ref("");
+const errors = ref([]);
+</script>
+
 <template>
   <form @submit.prevent="submitForm">
     <div>
@@ -11,9 +18,8 @@
       </ul>
     </div>
 
-    <button type="submit">S'inscrire</button>
+    <button type="submit" id="submit">S'inscrire</button>
   </form>
 </template>
 
-<script>
-</script>
+
